@@ -6,6 +6,7 @@ __pycache__/
 *$py.class
 project-example
 artifacts
+catboost_info
 
 # C extensions
 *.so

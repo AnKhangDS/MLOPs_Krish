@@ -22,7 +22,7 @@ class DataTransformation:
             X = df.drop(columns=[target_col])
             num_features = X.select_dtypes(exclude="object").columns
             cat_features = X.select_dtypes(include="object").columns
-            print(num_features)
+            # print(num_features)
 
             num_pipeline = Pipeline(
                 steps = [

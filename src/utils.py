@@ -45,7 +45,7 @@ def evaluate_model(X_train, y_train, X_test, y_test, models:dict, params:dict):
         model.set_params(**gs.best_params_)
 
         # Fit the model with the best parameters
-        model.fit(X_train, y_train)
+        model.fit(X_train, y_train) 
 
         # Predict on both train and test sets
         y_train_pred = model.predict(X_train)
@@ -78,4 +78,22 @@ def find_best_model(report: dict):
 
 
 
+def load_model(model_file="artifacts/model.pkl"):
+    try:
+        with open(model_file, "rb") as f:
+            return dill.load(f)
+        
+    except Exception as e:
+        logger.logging.info(exception.CustomException(e, sys))
+        raise exception.CustomException(e, sys)
+    
+
+def load_preprocessor(preprocessor_file="artifacts/preprocessor.pkl"):
+    try:
+        with open(preprocessor_file, "rb") as f:
+            return dill.load(f)
+        
+    except Exception as e:
+        logger.logging.info(exception.CustomException(e, sys))
+        raise exception.CustomException(e, sys)
 
